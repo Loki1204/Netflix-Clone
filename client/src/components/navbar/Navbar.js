@@ -7,7 +7,7 @@ import { logout } from "../../context/authContext/AuthActions";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const { dispatch } = useContext(AuthContext);
+  const { user, dispatch } = useContext(AuthContext);
 
   window.onscroll = () => {
     setIsScrolled(window.pageYOffset === 0 ? false : true);
@@ -17,10 +17,7 @@ const Navbar = () => {
     <div className={isScrolled ? "navbar scrolled" : "navbar"}>
       <div className="container">
         <div className="left">
-          <img
-            src="https://i.ibb.co/r5krrdz/logo.png"
-            alt="Netflix logo"
-          />
+          <img src="https://i.ibb.co/r5krrdz/logo.png" alt="Netflix logo" />
           <Link to="/" className="link">
             <span>Homepage</span>
           </Link>
@@ -35,10 +32,7 @@ const Navbar = () => {
           <Search className="icon" />
           <span>KID</span>
           <Notifications className="icon" />
-          <img
-            src="https://images.pexels.com/photos/6899260/pexels-photo-6899260.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-            alt="User"
-          />
+          <img src={user.result.profilePic} alt="User" />
           <div className="profile">
             <ArrowDropDown className="icon" />
             <div className="options">
