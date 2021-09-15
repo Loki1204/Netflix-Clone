@@ -1,6 +1,6 @@
 import React from "react";
 import { ArrowBackOutlined } from "@material-ui/icons";
-import "./watch.scss";
+import "./watch.css";
 import { useLocation } from "react-router";
 import { Link } from "react-router-dom";
 

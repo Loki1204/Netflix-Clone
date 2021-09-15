@@ -1,8 +1,8 @@
 import axios from "axios";
 import { useRef } from "react";
 import { useState } from "react";
-import { useHistory } from "react-router-dom";
-import "./register.scss";
+import { Link, useHistory } from "react-router-dom";
+import "./register.css";
 
 export default function Register() {
   const [email, setEmail] = useState("");
@@ -37,47 +37,34 @@ export default function Register() {
     }
   };
 
-  const handleSignInButton = () => {
-    console.log("hello");
-  };
-
   return (
-    <div className="register">
-      <div className="top">
-        <div className="wrapper">
-          <img
-            className="logo"
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/2560px-Netflix_2015_logo.svg.png"
-            alt="Netflix logo"
-          />
-          <button className="loginButton" onClick={handleSignInButton}>
-            Sign In
-          </button>
-        </div>
+    <div className="showcase">
+      <div className="showcase-top">
+        <img src="https://i.ibb.co/r5krrdz/logo.png" alt="Netflix logo" />
+        <Link to="/login" className="btn btn-rounded">
+          Sign In
+        </Link>
       </div>
-      <div className="container">
-        <h1>Unlimited movies, TV shows, and more.</h1>
-        <h2>Watch anywhere. Cancel anytime.</h2>
-        <p>
-          Ready to watch? Enter your email to create or restart your membership.
-        </p>
+      <div className="showcase-content">
+        <h1>Unlimited movies, TV shows and more.</h1>
+        <p>Watch anywhere. Cancel Anytime</p>
         {!email ? (
           <div className="input">
-            <input type="email" placeholder="email address" ref={emailRef} />
-            <button className="registerButton" onClick={handleStart}>
+            <input type="email" placeholder="email id" ref={emailRef} />
+            <button className="btn btn-register" onClick={handleStart}>
               Get Started
             </button>
           </div>
         ) : (
           <form className="input">
-            <input type="username" placeholder="username" ref={usernameRef} />
-            <input type="password" placeholder="password" ref={passwordRef} />
+            <input type="text" placeholder="Username" ref={usernameRef} />
+            <input type="password" placeholder="Password" ref={passwordRef} />
             <input
               type="password"
-              placeholder="confirm password"
+              placeholder="Confirm password"
               ref={confirmPasswordRef}
             />
-            <button className="registerButton" onClick={handleFinish}>
+            <button className="btn btn-register" onClick={handleFinish}>
               Start
             </button>
           </form>

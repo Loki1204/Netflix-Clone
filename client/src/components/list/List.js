@@ -4,7 +4,7 @@ import {
 } from "@material-ui/icons";
 import { useRef, useState } from "react";
 import ListItem from "../listItem/ListItem";
-import "./list.scss";
+import "./list.css";
 
 export default function List({ list }) {
   const [isMoved, setIsMoved] = useState(false);
@@ -36,7 +36,7 @@ export default function List({ list }) {
         />
         <div className="container" ref={listRef}>
           {list.content.map((item, i) => (
-            <ListItem index={i} item={item} />
+            <ListItem index={i} item={item} key={i} />
           ))}
         </div>
         <ArrowForwardIosOutlined

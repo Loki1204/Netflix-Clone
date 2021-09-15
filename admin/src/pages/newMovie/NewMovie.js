@@ -1,9 +1,10 @@
 import { useContext, useState } from "react";
 import "./newMovie.css";
 import storage from "../../firebase";
-import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { createMovie } from "../../context/movieContext/apiCalls";
 import { MovieContext } from "../../context/movieContext/MovieContext";
+import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import { useHistory } from "react-router";
 
 export default function NewMovie() {
   const [movie, setMovie] = useState(null);
@@ -13,6 +14,8 @@ export default function NewMovie() {
   const [trailer, setTrailer] = useState(null);
   const [video, setVideo] = useState(null);
   const [uploaded, setUploaded] = useState(0);
+
+  const history = useHistory()
 
   const { dispatch } = useContext(MovieContext);
 
@@ -25,7 +28,8 @@ export default function NewMovie() {
     items.forEach((item) => {
       const fileName = new Date().getTime() + item.label + item.file.name;
       const storageRef = ref(storage, `/items/${fileName}`);
-      const uploadTask = uploadBytesResumable(storageRef, item.file, item);
+      const uploadTask = uploadBytesResumable(storageRef, item.file);
+      // const uploadTask = storage.ref(`/items/${fileName}`).put(item.file);
       uploadTask.on(
         "state_changed",
         (snapshot) => {
@@ -38,10 +42,13 @@ export default function NewMovie() {
         },
         () => {
           getDownloadURL(uploadTask.snapshot.ref).then((url) => {
+            // console.log(uploadTask.snapshot.ref);
             setMovie((prev) => {
               return { ...prev, [item.label]: url };
             });
             setUploaded((prev) => prev + 1);
+            console.log(item);
+            // console.log(uploaded);
           });
         }
       );
@@ -62,6 +69,7 @@ export default function NewMovie() {
   const handleSubmit = (e) => {
     e.preventDefault();
     createMovie(movie, dispatch);
+    history.push('/movies')
   };
 
   return (

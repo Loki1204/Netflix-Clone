@@ -7,7 +7,7 @@ import {
 } from "@material-ui/icons";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import "./listItem.scss";
+import "./listItem.css";
 
 const ListItem = ({ item, index }) => {
   const [isHovered, setIsHovered] = useState(false);

@@ -1,6 +1,6 @@
 import { ArrowDropDown, Notifications, Search } from "@material-ui/icons";
 import { useContext, useState } from "react";
-import "./Navbar.scss";
+import "./navbar.css";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/authContext/AuthContext";
 import { logout } from "../../context/authContext/AuthActions";
@@ -18,8 +18,8 @@ const Navbar = () => {
       <div className="container">
         <div className="left">
           <img
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/2560px-Netflix_2015_logo.svg.png"
-            alt=""
+            src="https://i.ibb.co/r5krrdz/logo.png"
+            alt="Netflix logo"
           />
           <Link to="/" className="link">
             <span>Homepage</span>
@@ -30,8 +30,6 @@ const Navbar = () => {
           <Link to="/movies" className="link">
             <span className="navbarmainLinks">Movies</span>
           </Link>
-          <span>New and Popular</span>
-          <span>My List</span>
         </div>
         <div className="right">
           <Search className="icon" />

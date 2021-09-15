@@ -26,7 +26,11 @@ export default function MovieList() {
       renderCell: (params) => {
         return (
           <div className="productListItem">
-            <img className="productListImg" src={params.row.img} alt="movie poster icon" />
+            <img
+              className="productListImg"
+              src={params.row.img}
+              alt="movie poster icon"
+            />
             {params.row.title}
           </div>
         );

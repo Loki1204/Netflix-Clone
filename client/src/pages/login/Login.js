@@ -1,7 +1,8 @@
 import { useContext, useState } from "react";
+import { Link } from "react-router-dom";
 import { login } from "../../context/authContext/apiCalls";
 import { AuthContext } from "../../context/authContext/AuthContext";
-import "./login.scss";
+import "./login.css";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -15,13 +16,11 @@ export default function Login() {
   return (
     <div className="login">
       <div className="top">
-        <div className="wrapper">
-          <img
-            className="logo"
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/2560px-Netflix_2015_logo.svg.png"
-            alt=""
-          />
-        </div>
+        <img
+          className="logo"
+          src="https://i.ibb.co/r5krrdz/logo.png"
+          alt="Netflix logo"
+        />
       </div>
       <div className="container">
         <form>
@@ -40,7 +39,10 @@ export default function Login() {
             Sign In
           </button>
           <span>
-            New to Netflix? <b>Sign up now.</b>
+            New to Netflix?{" "}
+            <b>
+              <Link to="/register">Sign up now.</Link>{" "}
+            </b>
           </span>
           <small>
             This page is protected by Google reCAPTCHA to ensure you're not a

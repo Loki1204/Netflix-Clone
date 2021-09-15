@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Featured from "../../components/featured/Featured";
 import Navbar from "../../components/navbar/Navbar";
-import "./home.scss";
+import "./home.css";
 import List from "../../components/list/List";
 
 const Home = ({ type }) => {
