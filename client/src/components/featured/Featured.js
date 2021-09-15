@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { PlayArrow, InfoOutlined } from "@material-ui/icons";
 import "./featured.css";
 import axios from "axios";
+// import * as api from "../../api";
 
 const Featured = ({ type, setGenre }) => {
   const [content, setContent] = useState({});
@@ -13,8 +14,7 @@ const Featured = ({ type, setGenre }) => {
           `http://localhost:5000/api/movies/random?type=${type}`,
           {
             headers: {
-              token:
-                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc0FkbWluIjp0cnVlLCJpZCI6IjYxMzliNGE5MTA4MWIwMGY2ODAyOWQzZSIsImlhdCI6MTYzMTQyOTMxMSwiZXhwIjoxNjMxODYxMzExfQ.Cga8gjZPrI2tr520FSQ-nKCWt-d117M2utohWYQ3qI0",
+              token: "Bearer " + JSON.parse(localStorage.getItem("user")).token,
             },
           }
         );
