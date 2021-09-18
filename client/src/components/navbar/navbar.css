@@ -34,11 +34,7 @@
   margin-right: 20px;
   cursor: pointer;
 }
-@media (max-width: 768px) {
-  .navbar .container .left span {
-    display: none;
-  }
-}
+
 @media (max-width: 768px) {
   .navbar .container .left span.navbarmainLinks {
     display: block;
