@@ -41,13 +41,11 @@ export default function NewMovie() {
         },
         () => {
           getDownloadURL(uploadTask.snapshot.ref).then((url) => {
-            // console.log(uploadTask.snapshot.ref);
             setMovie((prev) => {
               return { ...prev, [item.label]: url };
             });
             setUploaded((prev) => prev + 1);
             console.log(item);
-            // console.log(uploaded);
           });
         }
       );

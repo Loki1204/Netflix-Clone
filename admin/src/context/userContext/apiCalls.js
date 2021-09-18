@@ -5,7 +5,7 @@ import { getUsersStart, getUsersSuccess, getUsersFailure } from "./UserActions";
 export const getUsers = async (dispatch) => {
   dispatch(getUsersStart());
   try {
-    const res = await axios.get("http://localhost:5000/api/users", {
+    const res = await axios.get("https://netflix-lookalike.herokuapp.com/api/users", {
       headers: {
         token: "Bearer " + JSON.parse(localStorage.getItem("user")).token,
       },

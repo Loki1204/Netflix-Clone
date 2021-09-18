@@ -30,12 +30,14 @@ export default function Home() {
   useEffect(() => {
     const getUserStats = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/users/stats", {
-          headers: {
-            token:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc0FkbWluIjp0cnVlLCJpZCI6IjYxMzliNGE5MTA4MWIwMGY2ODAyOWQzZSIsImlhdCI6MTYzMTQyOTMxMSwiZXhwIjoxNjMxODYxMzExfQ.Cga8gjZPrI2tr520FSQ-nKCWt-d117M2utohWYQ3qI0",
-          },
-        });
+        const res = await axios.get(
+          "https://netflix-lookalike.herokuapp.com/api/users/stats",
+          {
+            headers: {
+              token: "Bearer " + JSON.parse(localStorage.getItem("user")).token,
+            },
+          }
+        );
         const statsList = res.data.sort(function (a, b) {
           return a._id - b._id;
         });

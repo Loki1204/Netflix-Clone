@@ -18,7 +18,7 @@ import {
 export const getMovies = async (dispatch) => {
   dispatch(getMoviesStart());
   try {
-    const res = await axios.get("http://localhost:5000/api/movies", {
+    const res = await axios.get("https://netflix-lookalike.herokuapp.com/api/movies", {
       headers: {
         token: "Bearer " + JSON.parse(localStorage.getItem("user")).token,
       },
