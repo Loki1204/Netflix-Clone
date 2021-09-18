@@ -16,13 +16,7 @@ const Watch = () => {
           Home
         </div>
       </Link>
-      <video
-        src={movie.video}
-        className="video"
-        autoplay
-        progress
-        controls
-      ></video>
+      <video src={movie.video} className="video" autoPlay controls></video>
     </div>
   );
 };

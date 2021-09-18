@@ -15,7 +15,7 @@ export default function NewMovie() {
   const [video, setVideo] = useState(null);
   const [uploaded, setUploaded] = useState(0);
 
-  const history = useHistory()
+  const history = useHistory();
 
   const { dispatch } = useContext(MovieContext);
 
@@ -29,7 +29,6 @@ export default function NewMovie() {
       const fileName = new Date().getTime() + item.label + item.file.name;
       const storageRef = ref(storage, `/items/${fileName}`);
       const uploadTask = uploadBytesResumable(storageRef, item.file);
-      // const uploadTask = storage.ref(`/items/${fileName}`).put(item.file);
       uploadTask.on(
         "state_changed",
         (snapshot) => {
@@ -69,7 +68,7 @@ export default function NewMovie() {
   const handleSubmit = (e) => {
     e.preventDefault();
     createMovie(movie, dispatch);
-    history.push('/movies')
+    history.push("/movies");
   };
 
   return (
@@ -185,9 +184,11 @@ export default function NewMovie() {
             Create
           </button>
         ) : (
-          <button className="addProductButton" onClick={handleUpload}>
-            Upload
-          </button>
+          <>
+            <button className="addProductButton" onClick={handleUpload}>
+              Upload
+            </button>
+          </>
         )}
       </form>
     </div>

@@ -41,6 +41,9 @@
   width: 40vw;
   margin-top: 100px;
 }
+.featured .info .featuredTitle {
+  font-size: 50px;
+}
 .featured .info .desc {
   margin: 20px 0px;
 }
@@ -69,4 +72,13 @@
 }
 .featured .info .buttons button span {
   margin-left: 5px;
+}
+
+@media (max-width: 500px){
+  .featured .info .featuredTitle {
+    font-size: 30px;
+  }
+  .featured .info .desc {
+    display: none;
+  }
 }

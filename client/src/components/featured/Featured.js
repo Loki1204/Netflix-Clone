@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import { PlayArrow, InfoOutlined } from "@material-ui/icons";
 import "./featured.css";
 import axios from "axios";
-// import * as api from "../../api";
-
+import { Link } from "react-router-dom";
 const Featured = ({ type, setGenre }) => {
   const [content, setContent] = useState({});
+  const [movie, setMovie] = useState({});
 
   useEffect(() => {
     const getRandomContent = async () => {
@@ -20,6 +20,7 @@ const Featured = ({ type, setGenre }) => {
         );
 
         setContent(res.data[0]);
+        setMovie(res.data[0]);
       } catch (error) {
         console.log(error);
       }
@@ -38,9 +39,13 @@ const Featured = ({ type, setGenre }) => {
             onChange={(e) => setGenre(e.target.value)}
           >
             <option>Genre</option>
+            <option value="adventure">Action</option>
             <option value="adventure">Adventure</option>
+            <option value="animation">Animation</option>
             <option value="comedy">Comedy</option>
             <option value="crime">Crime</option>
+            <option value="documentary">Documentary</option>
+            <option value="drama">Drama</option>
             <option value="fantasy">Fantasy</option>
             <option value="historical">Historical</option>
             <option value="horror">Horror</option>
@@ -48,21 +53,20 @@ const Featured = ({ type, setGenre }) => {
             <option value="sci-fi">Sci-fi</option>
             <option value="thriller">Thriller</option>
             <option value="western">Western</option>
-            <option value="animation">Animation</option>
-            <option value="drama">Drama</option>
-            <option value="documentary">Documentary</option>
           </select>
         </div>
       )}
       <img width="100%" src={content.img} alt="" />
       <div className="info">
-        <img src={content.imgTitle} alt="" />
+        <span className="featuredTitle">{content.title}</span>
         <span className="desc">{content.desc}</span>
         <div className="buttons">
-          <button className="play">
-            <PlayArrow />
-            <span>Play</span>
-          </button>
+          <Link to={{ pathname: "/watch", movie: movie }}>
+            <button className="play">
+              <PlayArrow />
+              <span>Play</span>
+            </button>{" "}
+          </Link>
           <button className="more">
             <InfoOutlined />
             <span>Info</span>

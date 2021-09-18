@@ -31,7 +31,7 @@ const ListItem = ({ item, index }) => {
     };
     getMovie();
   }, [item]);
-
+  
   return (
     <Link to={{ pathname: "/watch", movie: movie }}>
       <div
@@ -40,7 +40,7 @@ const ListItem = ({ item, index }) => {
         onMouseLeave={() => setIsHovered(false)}
         style={{ left: isHovered && index * 225 - 50 + index * 2.5 }}
       >
-        <img src={movie.img} alt="" />
+        <img src={movie.img} alt={movie.title} />
         {isHovered && (
           <>
             <video src={movie.trailer} autoPlay={true} loop />
@@ -53,7 +53,7 @@ const ListItem = ({ item, index }) => {
               </div>
               <div className="itemInfoTop">
                 <span>{movie.duration}</span>
-                <span className="limit">{movie.age}</span>
+                <span className="limit">{movie.limit}</span>
                 <span>{movie.year}</span>
               </div>
               <div className="desc">{movie.desc}</div>
