@@ -13,9 +13,9 @@ const Home = ({ type }) => {
     const getRandomLists = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:5000/api/lists${type ? "?type=" + type : ""}${
-            genre ? "&genre=" + genre : ""
-          }`,
+          `https://netflix-lookalike.herokuapp.com/api/lists${
+            type ? "?type=" + type : ""
+          }${genre ? "&genre=" + genre : ""}`,
           {
             headers: {
               token: "Bearer " + JSON.parse(localStorage.getItem("user")).token,

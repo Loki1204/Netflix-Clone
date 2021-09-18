@@ -25,12 +25,15 @@ export default function Register() {
     setConfirmPassword(confirmPasswordRef.current.value);
     setUsername(usernameRef.current.value);
     try {
-      await axios.post("http://localhost:5000/api/auth/register", {
-        email,
-        username,
-        password,
-        confirmPassword,
-      });
+      await axios.post(
+        "https://netflix-lookalike.herokuapp.com/api/auth/register",
+        {
+          email,
+          username,
+          password,
+          confirmPassword,
+        }
+      );
       history.push("/login");
     } catch (err) {
       console.log(err);

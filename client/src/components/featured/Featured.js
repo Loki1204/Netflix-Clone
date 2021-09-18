@@ -11,7 +11,7 @@ const Featured = ({ type, setGenre }) => {
     const getRandomContent = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:5000/api/movies/random?type=${type}`,
+          `https://netflix-lookalike.herokuapp.com/api/movies/random?type=${type}`,
           {
             headers: {
               token: "Bearer " + JSON.parse(localStorage.getItem("user")).token,

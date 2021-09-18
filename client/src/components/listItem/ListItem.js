@@ -17,7 +17,7 @@ const ListItem = ({ item, index }) => {
     const getMovie = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:5000/api/movies/find/" + item,
+          "https://netflix-lookalike.herokuapp.com/api/movies/find/" + item,
           {
             headers: {
               token: "Bearer " + JSON.parse(localStorage.getItem("user")).token,
@@ -31,7 +31,7 @@ const ListItem = ({ item, index }) => {
     };
     getMovie();
   }, [item]);
-  
+
   return (
     <Link to={{ pathname: "/watch", movie: movie }}>
       <div
