@@ -1,4 +1,4 @@
-import { ArrowDropDown, Notifications, Search } from "@material-ui/icons";
+import { ArrowDropDown, Search } from "@material-ui/icons";
 import { useContext, useState } from "react";
 import "./navbar.css";
 import { Link } from "react-router-dom";
@@ -30,8 +30,6 @@ const Navbar = () => {
         </div>
         <div className="right">
           <Search className="icon" />
-          <span>KID</span>
-          <Notifications className="icon" />
           <img src={user.result.profilePic} alt="User" />
           <div className="profile">
             <ArrowDropDown className="icon" />
