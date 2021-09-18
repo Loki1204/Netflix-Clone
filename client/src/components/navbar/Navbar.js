@@ -19,7 +19,7 @@ const Navbar = () => {
         <div className="left">
           <img src="https://i.ibb.co/r5krrdz/logo.png" alt="Netflix logo" />
           <Link to="/" className="link">
-            <span>Homepage</span>
+            <span>Home</span>
           </Link>
           <Link to="/series" className="link">
             <span className="navbarmainLinks">Series</span>
